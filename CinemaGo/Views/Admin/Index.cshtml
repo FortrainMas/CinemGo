@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+<h1>Enter admin data</h1>
+@if (ViewData["IsAdmin"] == null)
+{
+    <form method="post">
+        <label>Логин:</label><br />
+        <input type="text" name="login" /><br /><br />
+        <label>Пароль:</label><br />
+        <input type="text" name="password" /><br /><br />
+        <input type="submit" value="Отправить" />
+    </form>
+}
+else
+{
+    if ((string)ViewData["IsAdmin"] == "True")
+    {
+        <h1>Ok</h1>
+    }
+    else 
+    {
+        <h1>Nope</h1>
+    }
+}
