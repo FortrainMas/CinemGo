@@ -8,12 +8,16 @@ namespace CinemaGo.Models
 {
     public class MyDbContext:DbContext
     {
-        public DbSet<Film> Films;
-        public DbSet<User> Users;
-        public DbSet<FilmPage> FilmPages;
-        protected override void OnConfiguring(DbContextOptionsBuilder option) 
+        public DbSet<Film> Films { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<FilmPage> FilmPages { get; set; }
+        public MyDbContext() {             
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder option)
         {
-            option.UseSqlServer("Server=(localdb)/mssqllocaldb;Database=CinemaGoDb;Trusted_Connection=True");
+            option.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CinemaGjDB;Trusted_Connection=True;");
         }
     }
 }

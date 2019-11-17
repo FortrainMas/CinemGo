@@ -12,8 +12,8 @@ namespace CinemaGo.Models
         public string Name { get; set; }
         public string TrailerLink {get;set;}
         public string FilmLink { get; set; }
-        public int InFav { get; set; }
         public string Discription { get; set; }
-        public List<Coment> Coments { get; set; }
+        public string Img { get; set; }
+        //public List<Coment> Coments { get; set; }
     }
 }

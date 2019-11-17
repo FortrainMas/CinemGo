@@ -8,7 +8,7 @@
         <label>Логин:</label><br />
         <input type="text" name="login" /><br /><br />
         <label>Пароль:</label><br />
-        <input type="text" name="password" /><br /><br />
+        <input type="password" name="password" /><br /><br />
         <input type="submit" value="Отправить" />
     </form>
 }
@@ -16,7 +16,32 @@ else
 {
     if ((string)ViewData["IsAdmin"] == "True")
     {
-        <h1>Ok</h1>
+<form asp-controller="Admin" asp-action="AddFile" method="post" enctype="multipart/form-data">
+    <label>Введите название фильма:</label><br />
+    <input type="text" name="name" /><br /><br />
+    <label>Введите описание фильма:</label><br />
+    <input type="text" name="disc" /><br /><br />
+    <label>Ссылка на трейлер:</label><br />
+    <input type="text" name="trailer" /><br /><br />
+    <label>Ссылка на Фильм:</label><br />
+    <input type="text" name="film" /><br /><br />
+    <label>Фото:</label><br />
+    <input type="file" name="photo" /><br>
+    @*
+        <label>Введите описание фильма:</label><br />
+        <input type="text" name="disc" /><br /><br />
+        <label>Введите описание фильма:</label><br />
+        <input type="text" name="disc" /><br /><br />
+        <label>Введите описание фильма:</label><br />
+        <input type="text" name="disc" /><br /><br />
+        <label>Введите описание фильма:</label><br />
+        <input type="text" name="disc" /><br /><br />
+        <label>Введите описание фильма:</label><br />
+        <input type="text" name="disc" /><br /><br />
+        <label>Введите описание фильма:</label><br />
+        <input type="text" name="disc" /><br /><br />*@
+    <input type="submit" value="Отправить" />
+</form>
     }
     else 
     {

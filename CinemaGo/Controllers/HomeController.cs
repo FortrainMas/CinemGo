@@ -20,6 +20,12 @@ namespace CinemaGo.Controllers
 
         public IActionResult Index()
         {
+            //Film film = new Film() { Name = "name", Disc = "disc", Img = "img", Link = "link" };
+            //using (var db = new MyDbContext())
+            //{
+            //    db.Films.Add(film);
+            //    db.SaveChanges();
+            //}
             return View();
         }
 
