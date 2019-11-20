@@ -35,7 +35,7 @@ namespace CinemaGo.Controllers
             }
             return View();
         }
-        public async Task<IActionResult> AddFile(string name, string disc, IFormFile photo, string trailer, string filmLink) 
+        public async Task<IActionResult> AddFile(string name, string disc, string genre, IFormFile photo, string trailer, string filmLink) 
         {
             var link = "dfsdfsdfsd";
             string img;
@@ -50,8 +50,8 @@ namespace CinemaGo.Controllers
                 img = Path;
                 using (MyDbContext db = new MyDbContext()) 
                 {
-                    Film film = new Film() { Name = name, Disc = disc, Img = img, Link = link };
-                    FilmPage fm = new FilmPage() { Name = name, Discription = disc, Img = img, FilmLink = filmLink, TrailerLink = trailer, Link = link };
+                    Film film = new Film() { Name = name, Disc = disc, Img = img, Genre=genre, Link = link };
+                    FilmPage fm = new FilmPage() { Name = name, Discription = disc, Img = img, FilmLink = filmLink, TrailerLink = trailer, Link = link, Genre = genre };
                     db.Films.Add(film);
                     db.FilmPages.Add(fm);
                     db.SaveChanges();

@@ -1,6 +1,62 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+*{
+  padding: 0%;
+  margin: 0%;
+}
+.head {
+    width: 100%;
+    height: 20%;
+    background-color: #1b6ec2;
+}
+.logo {
+    padding-top:2.15%;
+    padding-left:5%;
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: #1437AD;
+    font-size: 3em
+}
+.logoText a:hover {
+    color:#fff;
+}
+.logoText{
+  color:#fff;
+  padding-left: 3%;
+  padding-top: 10%;
+}
+.menuLi{
+  font-size: 1.7em;
+  float:left;
+  margin-top:3%;
+  margin-left: 6.5%;
+  margin-bottom:3%;
+}
+li{
+  list-style-type: none;
+}
+.content {
+    height:100%;
+    width:100%;
+    background-color:black;
+}
+.menu {
+    float: right;
+    height: 100%;
+    width: 80%;
+    color: white;
+    background-color: #274E7D;
+}
+.body{
+  padding-left: 0%;
+  padding-right: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding-top: 5%;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -9,7 +65,11 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #fff;
+}
+a:hover {
+    color: #FF8100;
+    text-decoration:none;
 }
 
 .btn-primary {

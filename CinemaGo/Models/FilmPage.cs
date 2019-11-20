@@ -14,6 +14,7 @@ namespace CinemaGo.Models
         public string FilmLink { get; set; }
         public string Discription { get; set; }
         public string Img { get; set; }
+        public string Genre { get; set; }
         //public List<Coment> Coments { get; set; }
     }
 }
