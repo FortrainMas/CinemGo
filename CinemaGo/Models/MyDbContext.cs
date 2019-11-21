@@ -12,7 +12,6 @@ namespace CinemaGo.Models
         public DbSet<User> Users { get; set; }
         public DbSet<FilmPage> FilmPages { get; set; }
         public MyDbContext() {             
-            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder option)

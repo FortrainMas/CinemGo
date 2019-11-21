@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Popular";
+}
+<h1>Popular films</h1>
+@{
+    foreach (var i in (List<Film>)ViewData["Films"]) 
+    {
+        <h2>@i.Name</h2>
+    }
+ }

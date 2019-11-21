@@ -13,6 +13,8 @@ namespace CinemaGo.Models
         public string Disc { get; set; }
         public string Img { get; set; }
         public string Link { get; set; }
+        public int FilmViews { get; set; }
+        public int InFavList { get; set; }
         public string Genre { get; set; }
     }
 }
