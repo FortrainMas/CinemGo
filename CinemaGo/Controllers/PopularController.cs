@@ -27,7 +27,7 @@ namespace CinemaGo.Controllers
                             //If film in list has got more "PopularPoints" then film in RecomendFilm it becomes recomend film
                             //PopularPoint is views * (how many add this film in favourite list * 100)
                             //Second term multiplies to 100 because it's more important
-                            if (film.FilmViews * (film.InFavList * 100) > RecomendFilm.FilmViews * (RecomendFilm.InFavList * 100))
+                            if (film.FilmViews * (film.InFavList * 100) >= RecomendFilm.FilmViews * (RecomendFilm.InFavList * 100))
                             {
                                 RecomendFilm = film;
                             }
@@ -35,7 +35,7 @@ namespace CinemaGo.Controllers
                         }
                     }
                     RecomendsList.Add(RecomendFilm);
-                    RecomendFilm = new Film { FilmViews = 0, InFavList = 0 };
+                    RecomendFilm = new Film { FilmViews = 0, InFavList=0 };
                 }
             }
             ViewData["Films"] = RecomendsList;

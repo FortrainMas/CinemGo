@@ -11,12 +11,12 @@ namespace CinemaGo.Models
         public DbSet<Film> Films { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<FilmPage> FilmPages { get; set; }
-        public MyDbContext() {             
+        public MyDbContext() {
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder option)
         {
-            option.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CinemaGjDB;Trusted_Connection=True;");
+            option.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CinemaGoDB;Trusted_Connection=True;");
         }
     }
 }

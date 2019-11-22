@@ -37,12 +37,12 @@ namespace CinemaGo.Controllers
         }
         public async Task<IActionResult> AddFile(string name, string disc, string genre, IFormFile photo, string trailer, string filmLink) 
         {
-            var link = "dfsdfsdfsd";
+            Random r = new Random();
+            var link = r.Next(-99999,99999).ToString()+name;
             string img;
-            if (name != null) 
-            {
-                Random r = new Random();
-                string Path = "/img/" + photo.FileName + r.Next(0, 9999999).ToString();
+            if (name != null)
+            {           
+                string Path = @"\img\" + r.Next(0, 9999999).ToString() + photo.FileName;
                 using (var fs = new FileStream(_appEnviroment.WebRootPath + Path, FileMode.Create)) 
                 {
                     await photo.CopyToAsync(fs);

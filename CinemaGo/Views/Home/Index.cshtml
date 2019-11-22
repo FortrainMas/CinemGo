@@ -2,6 +2,14 @@
     ViewData["Title"] = "Home";
 }
 <h1>Фильмы для вас</h1>
-<div class="content">
-
-</div>
+@{
+    foreach (var i in (List<Film>)ViewData["Films"])
+    {
+        var filmLink = "/film?f" + i.Link;
+        <div class="Film">
+            <a href="@filmLink">
+                <img class="filmImg" src="~/img/@i.Img">
+            </a>
+        </div>
+    }
+}

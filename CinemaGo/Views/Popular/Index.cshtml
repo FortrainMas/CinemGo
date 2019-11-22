@@ -5,6 +5,11 @@
 @{
     foreach (var i in (List<Film>)ViewData["Films"]) 
     {
-        <h2>@i.Name</h2>
+        var filmLink = "/film?f"+i.Link;
+        <div class="Film">            
+            <a href ="@filmLink">
+                <img class="filmImg" src="~/img/@i.Img">
+            </a>
+        </div>
     }
  }
