@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@{FilmPage film = (FilmPage)ViewData["Film"];}
+<div class="FilmPage">
+    <div class="FilmContent">
+        <h1>@film.Name</h1>
+        <h3>Трейлер</h3>
+        <iframe width="560" height="315" src="@film.TrailerLink" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3>Описание</h3>
+        <p>@film.Discription</p>
+        <h3>Смотреть фильм</h3>
+        <iframe width="560" height="315" src="@film.FilmLink" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="FilmPhoto">
+            <img class="filmImg" src="~/img/@film.Img">
+    </div>
+</div>+

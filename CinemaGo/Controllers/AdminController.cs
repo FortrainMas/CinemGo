@@ -39,19 +39,18 @@ namespace CinemaGo.Controllers
         {
             Random r = new Random();
             var link = r.Next(-99999,99999).ToString()+name;
-            string img;
             if (name != null)
-            {           
-                string Path = @"\img\" + r.Next(0, 9999999).ToString() + photo.FileName;
+            {
+                string fileName = r.Next(0, 9999999).ToString() + photo.FileName;
+                string Path = @"\img\" + fileName;
                 using (var fs = new FileStream(_appEnviroment.WebRootPath + Path, FileMode.Create)) 
                 {
                     await photo.CopyToAsync(fs);
                 }
-                img = Path;
                 using (MyDbContext db = new MyDbContext()) 
                 {
-                    Film film = new Film() { Name = name, Disc = disc, Img = img, Genre=genre, Link = link };
-                    FilmPage fm = new FilmPage() { Name = name, Discription = disc, Img = img, FilmLink = filmLink, TrailerLink = trailer, Link = link, Genre = genre };
+                    Film film = new Film() { Name = name, Disc = disc, Img = fileName, Genre=genre, Link = link };
+                    FilmPage fm = new FilmPage() { Name = name, Discription = disc, Img = fileName, FilmLink = filmLink, TrailerLink = trailer, Link = link, Genre = genre };
                     db.Films.Add(film);
                     db.FilmPages.Add(fm);
                     db.SaveChanges();

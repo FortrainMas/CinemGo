@@ -5,7 +5,7 @@
 @{
     foreach (var i in (List<Film>)ViewData["Films"])
     {
-        var filmLink = "/film?f" + i.Link;
+        var filmLink = "/film?f=" + i.Link;
         <div class="Film">
             <a href="@filmLink">
                 <img class="filmImg" src="~/img/@i.Img">
