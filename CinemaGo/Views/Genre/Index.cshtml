@@ -4,23 +4,40 @@
 }
 
 <h1>Жанры</h1>
-<a href="/Genre?g=Comedy">
-    <div class="LinkToComedy">
-        <h3>Комедии</h3>
-    </div>
-</a>
-<a href="/Genre?g=Drama">
-    <div class="LinkToDrama">
-        <h3>Драмы</h3>
-    </div>
-</a>
-<a href="/Genre?g=Action">
-    <div class="LinkToAction">
-        <h3>Экшен</h3>        
-    </div>
-</a>
-<a href="/Genre?g=Fantasy">
-    <div class="LinkToFantasy">
-        <h3>Фантастика</h3>
-    </div>
-</a>
+@if (ViewData["Films"] == null)
+{
+    <a href="/Genre?g=Comedy">
+        <div class="LinkToComedy">
+            <h3>Комедии</h3>
+        </div>
+    </a>
+    <a href="/Genre?g=Drama">
+        <div class="LinkToDrama">
+            <h3>Драмы</h3>
+        </div>
+    </a>
+    <a href="/Genre?g=Action">
+        <div class="LinkToAction">
+            <h3>Экшен</h3>
+        </div>
+    </a>
+    <a href="/Genre?g=Fantasy">
+        <div class="LinkToFantasy">
+            <h3>Фантастика</h3>
+        </div>
+    </a>
+}
+@{
+    else
+    {
+        foreach (var i in (List<Film>)ViewData["Films"])
+        {
+            var filmLink = "/film?f=" + i.Link;
+            <div class="Film">
+                <a href="@filmLink">
+                    <img class="filmImg" src="~/img/@i.Img">
+                </a>
+            </div>
+        }
+    }
+}

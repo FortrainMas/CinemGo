@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Мультфильмы</h1>
+@{
+    @*Film film = (Film)ViewData["Films"];
+    <p>@film.Genre</p>*@
+    foreach (var i in (List<Film>)ViewData["Films"])
+    {
+        var filmLink = "/film?f=" + i.Link;
+        <div class="Film">
+            <a href="@filmLink">
+                <img class="filmImg" src="~/img/@i.Img">
+            </a>
+        </div>
+    }
+}
