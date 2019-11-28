@@ -3,7 +3,7 @@
 }
 <h1>Popular films</h1>
 @{
-    foreach (var i in (List<Film>)ViewData["Films"]) 
+    foreach (var i in (List<FilmPage>)ViewData["Films"]) 
     {
         var filmLink = "/film?f="+i.Link;
         <div class="Film">            

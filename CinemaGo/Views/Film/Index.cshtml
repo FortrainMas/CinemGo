@@ -1,8 +1,8 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-}
 @{FilmPage film = (FilmPage)ViewData["Film"];}
+@{
+    ViewData["Title"] = film.Name;
+}
 <div class="FilmPage">
     <div class="FilmContent">
         <h1>@film.Name</h1>
@@ -14,6 +14,6 @@
         <iframe width="560" height="315" src="@film.FilmLink" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="FilmPhoto">
-            <img class="filmImg" src="~/img/@film.Img">
+        <img class="filmImg" src="~/img/@film.Img">
     </div>
 </div>+

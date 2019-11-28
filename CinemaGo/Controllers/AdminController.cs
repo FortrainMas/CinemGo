@@ -50,7 +50,7 @@ namespace CinemaGo.Controllers
                 using (MyDbContext db = new MyDbContext()) 
                 {
                     Film film = new Film() { Name = name, Disc = disc, Img = fileName, Genre=genre, Link = link };
-                    FilmPage fm = new FilmPage() { Name = name, Discription = disc, Img = fileName, FilmLink = filmLink, TrailerLink = trailer, Link = link, Genre = genre };
+                    FilmPage fm = new FilmPage() { Name = name, Discription = disc, Img = fileName, FilmLink = filmLink, TrailerLink = trailer, Link = link, Genre = genre, FilmViews=1, InFavList=1 };
                     db.Films.Add(film);
                     db.FilmPages.Add(fm);
                     db.SaveChanges();

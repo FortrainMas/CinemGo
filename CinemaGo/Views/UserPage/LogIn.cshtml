@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+<h1>LogIn</h1>
+<center>
+    <form asp-controller="UserPage" asp-action="Enter" method="post" enctype="multipart/form-data">
+        <label>Имя пользователя: </label>
+        <input type="text" name="username">
+        <label>Пароль</label>
+        <input type="text" name="password">
+        <input type="submit" value="Отправить">
+    </form>
+</center>
+

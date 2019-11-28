@@ -11,12 +11,12 @@ namespace CinemaGo.Controllers
     {
         public IActionResult Index()
         {
-            List<Film> RecomendsList = new List<Film>();
-            List<Film> FilmsList = new List<Film>();
-            Film RecomendFilm = new Film { FilmViews = 0,InFavList=0 };
+            List<FilmPage> RecomendsList = new List<FilmPage>();
+            List<FilmPage> FilmsList = new List<FilmPage>();
+            FilmPage RecomendFilm = new FilmPage { FilmViews = 0,InFavList=0 };
             using (MyDbContext db = new MyDbContext()) 
             {
-                FilmsList = db.Films.ToList();
+                FilmsList = db.FilmPages.ToList();
                 for (int i = 0; i < FilmsList.Count; i++)
                 {
                     foreach (var film in FilmsList)
@@ -35,7 +35,7 @@ namespace CinemaGo.Controllers
                         }
                     }
                     RecomendsList.Add(RecomendFilm);
-                    RecomendFilm = new Film { FilmViews = 0, InFavList=0 };
+                    RecomendFilm = new FilmPage { FilmViews = 0, InFavList=0 };
                 }
             }
             ViewData["Films"] = RecomendsList;
