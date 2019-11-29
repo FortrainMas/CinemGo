@@ -12,6 +12,7 @@ namespace CinemaGo.Controllers
     {
         private string Username { get; set; }
         private string Password { get; set; }
+        private string PhoneNumber { get; set; }
         public IActionResult Index()
         {
             string UserMacAddress = GetMACAddress();
@@ -21,11 +22,15 @@ namespace CinemaGo.Controllers
                 if (db.Users.FirstOrDefault(a => a.Mac == UserMacAddress) != null)
                 {
                     user = db.Users.FirstOrDefault(a => a.Mac == UserMacAddress);
+                    
                     ViewData["Films"] = user.FavList;
                     return View();
                 }               
                 else if (user != null) 
                 {
+                    user.Mac = UserMacAddress;
+                    db.Users.Update(user);
+                    db.SaveChanges();
                     ViewData["Films"] = user.FavList;
                     return View();
                 }
@@ -40,6 +45,27 @@ namespace CinemaGo.Controllers
             return RedirectToAction("Index");
         }
         public IActionResult LogIn() 
+        {
+            return View();
+        }
+        public IActionResult GetNewUser(string username, string password,string phoneNumber) 
+        {
+            using (var db = new MyDbContext()) 
+            {
+                //TODO:Make check is phone number already exist in data base
+                Password = password;
+                Username = username;
+                PhoneNumber = phoneNumber;
+                User user = new User(Username,Password,PhoneNumber);
+                user.Password = Password;
+                user.Username = Username;
+                user.PhoneNumber = PhoneNumber;
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
+            return RedirectToAction("LogIn");
+        }
+        public IActionResult SignIn() 
         {
             return View();
         }
