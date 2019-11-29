@@ -4,10 +4,11 @@
 }
 
 <h1>SignIn</h1>
-<form asp-controller="UserPage" asp-action="GetNewUser" method="post" enctype="multipart/form-data">
-    <input type = "text" name="username" class = "Input">
-    <input type = "text" name="password" class = "Input">
-    <input type = "text" name="phoneNumber" class = "Input">
-    <input type = "submit" class="sendUserData">
-</form>
-
+<center>
+    <form asp-controller="UserPage" asp-action="GetNewUser" method="post" enctype="multipart/form-data">
+        <input type = "text" name="username" class = "Input" placeholder="Name">
+        <input type = "text" name="password" class = "Input" placeholder="Password">
+        <input type = "text" name="phoneNumber" class = "Input" placeholder="Phone">
+        <input type = "submit" class="sendUserData">
+    </form>
+</center>
